@@ -15,15 +15,19 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.0",
+    "tailwindcss": "^1.9.6",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
+    "build:tailwind": "tailwindcss build src/tailwind.css -o src/tailwind.output.css",
+    "preapp": "npm run build:tailwind",
+    "prebuild": "npm run build:tailwind",
     "app": "react-scripts start",
     "api": "nodemon api/server.js",
     "start": "node api/server.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject", 
+    "eject": "react-scripts eject",
     "deploy": "git push dokku main",
     "heroku-postbuild": "npm run build"
   },
