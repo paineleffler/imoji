@@ -15,6 +15,9 @@ const Message = gql`
   extend type Mutation {
     addMessage(content: String!, createdBy: String!): Message
   }
+  extend type Subscription {
+    newMessage: Message
+  }
 `
 
 module.exports = Message
