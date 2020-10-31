@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './components/App'
 import reportWebVitals from './reportWebVitals'
+import './tailwind.output.css'
 
 ReactDOM.render(
   <React.StrictMode>
