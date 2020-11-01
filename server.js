@@ -4,11 +4,11 @@ const { ApolloServer } = require('apollo-server-express')
 const { PubSub } = require('graphql-subscriptions')
 const path = require('path')
 
-const typeDefs = require('./types')
-const resolvers = require('./resolvers')
+const typeDefs = require('./api/types')
+const resolvers = require('./api/resolvers')
 
 require('dotenv').config()
-require('./db')
+require('./api/db')
 
 const pubsub = new PubSub()
 const API_PORT =  process.env.API_PORT || 4000
@@ -27,10 +27,10 @@ const server = new ApolloServer({
 
 server.applyMiddleware({ app })
 
-app.use(express.static(path.join(__dirname, '../build')))
+app.use(express.static(path.join(__dirname, 'build')))
 
 app.get('/*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../build', 'index.html'))
+  res.sendFile(path.join(__dirname, 'build', 'index.html'))
 })
 
 const httpServer = createServer(app)
