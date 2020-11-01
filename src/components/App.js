@@ -1,6 +1,11 @@
+import Apollo from './Apollo'
+import Chat from './Chat'
+
 function App() {
   return (
-    <>Hello world!</>
+    <Apollo>
+      <Chat />
+    </Apollo>
   )
 }
 

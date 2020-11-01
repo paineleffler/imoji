@@ -12,9 +12,14 @@ require('./db')
 
 const pubsub = new PubSub()
 const API_PORT =  process.env.API_PORT || 4000
+const cors = {
+	origin: process.env.REACT_APP_UI_URL,
+  credentials: true
+}
 
 const app = express()
 const server = new ApolloServer({
+  cors,
   typeDefs,
   resolvers,
   context: ({ req }) => { return { pubsub } } // add some auth here later. 🔒
